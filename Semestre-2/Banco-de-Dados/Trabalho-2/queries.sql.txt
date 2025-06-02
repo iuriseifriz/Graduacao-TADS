@@ -1,0 +1,89 @@
+-- criação das tabelas
+CREATE TABLE atracoes (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    capacidade INT NOT NULL
+);
+
+CREATE TABLE visitantes (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    dataNascimento DATE NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE funcionarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(50) NOT NULL,
+    salario DECIMAL(10, 2) NOT NULL,
+    atracaoId INT,
+    FOREIGN KEY (atracaoId) REFERENCES atracoes(id)
+);
+
+CREATE TABLE ingressos (
+    id SERIAL PRIMARY KEY,
+    visitanteId INT NOT NULL,
+    atracaoId INT NOT NULL,
+    dataVisita DATE NOT NULL,
+    FOREIGN KEY (visitanteId) REFERENCES visitantes(id),
+    FOREIGN KEY (atracaoId) REFERENCES atracoes(id)
+);
+
+-- inserção de dados
+
+INSERT INTO visitantes (nome, dataNascimento, email) 
+VALUES 
+('João Silva', '1990-05-15', 'joao.silva@email.com'),
+('Maria Oliveira', '1985-11-20', 'maria.oliveira@email.com'),
+('Carlos Souza', '2000-07-10', 'carlos.souza@email.com');
+
+INSERT INTO atracoes (nome, tipo, capacidade) 
+VALUES 
+('Montanha Russa', 'Radical', 20),
+('Carrossel', 'Infantil', 40),
+('Roda Gigante', 'Moderada', 30);
+
+INSERT INTO funcionarios (nome, cargo, salario, atracaoId) 
+VALUES 
+('Ana Costa', 'Operadora de Montanha Russa', 3000.00, 1),
+('Pedro Lima', 'Operador de Carrossel', 2500.00, 2),
+('Luciana Pereira', 'Operadora de Roda Gigante', 2800.00, 3);
+
+INSERT INTO ingressos (visitanteId, atracaoId, dataVisita) 
+VALUES 
+(1, 1, '2024-12-06'),
+(2, 2, '2024-12-06');
+
+-- consultas
+
+SELECT * FROM visitantes;
+
+SELECT * FROM atracoes;
+
+SELECT v.nome 
+FROM visitantes v
+JOIN ingressos i ON v.id = i.visitanteId
+JOIN atracoes a ON a.id = i.atracaoId
+WHERE a.nome = 'Montanha Russa';
+
+SELECT nome, cargo, salario 
+FROM funcionarios 
+WHERE salario > 3000;
+
+SELECT nome FROM visitantes
+ORDER BY nome;
+
+SELECT nome, capacidade FROM atracoes
+ORDER BY capacidade DESC;
+
+SELECT AVG(salario) AS media_salario FROM funcionarios;
+
+SELECT MAX(dataVisita) AS data_mais_recente FROM ingressos;
+
+SELECT nome FROM visitantes
+WHERE dataNascimento < '2000-01-01';
+
+SELECT nome, EXTRACT(YEAR FROM AGE(dataNascimento)) AS idade 
+FROM visitantes;

@@ -1,0 +1,51 @@
+
+Tecnologia em Análise e Desenvolvimento de Sistemas
+Lógica de Programação
+Professor Vinícius Fritzen Machado
+
+
+TRABALHO VETORES
+
+ATENÇÃO
+SOMENTE RECURSOS UTILIZADOS EM SALA DE AULA DEVEM SER UTILIZADOS NA SOLUÇÃO DESTE TRABALHO.
+
+O MODELO DE TRABALHO SERÁ DE ACORDO COM A INICIAL DO SEU NOME
+Modelo A - Iniciais de A até G	(Adriana  -  Guilherme) 
+Modelo B - Iniciais de H até L		(Iuri   -  Lukas)
+Modelo C - Iniciais de M até W 	(Marina  -  Walber) 
+
+
+Novas soluções são encorajadas, no entanto, é necessário que os alunos demonstrem domínio sobre as técnicas apresentadas. Os códigos fontes serão avaliados quanto a funcionalidade, legibilidade, estrutura e organização. Enviar os códigos fontes para o email
+
+vinicius.machado+logica2024@riogrande.ifrs.edu.br
+
+No Assunto, incluir seu Nome + sobrenome.
+Compacte os arquivos .java em .zip e renomeie o arquivo com seu nome.
+
+
+
+MODELO B
+
+Jogo "Cara a Cara" com Vetores
+Objetivo do Jogo: O objetivo é criar um jogo "Cara a Cara" em que cada pessoa é representada por um índice em vetores paralelos. Os jogadores devem adivinhar a pessoa selecionada pelo oponente fazendo perguntas sobre suas características. O jogo deve contar com 20 pessoas
+Descrição do Projeto:
+Vetores de Dados:
+Crie vetores paralelos onde cada índice representa uma pessoa diferente. Os vetores podem incluir:
+nomes[]: Contém os nomes das pessoas.
+generos[]: Contém o gênero das pessoas (por exemplo, "M", "F").
+cabelos[]: Descreve a cor do cabelo (por exemplo, "loiro", "castanho", "preto").
+olhos[]: Descreve a cor dos olhos (por exemplo, "azul", "verde", "castanho").
+alturas[]: Representa a altura das pessoas (por exemplo, "alto", "médio", "baixo").
+acessorios[]: Contém informações sobre acessórios (por exemplo, "óculos", "chapéu", "nenhum").
+	Para cada vetor, você deve sortear aleatoriamente valores para que cada partida seja única.
+Seleção de Personagem:
+Usando o random, uma posição é sorteada indicando qual o nome escolhido.
+Sistema de Perguntas:
+O jogador faz perguntas que podem ser respondidas com "Sim" ou "Não". As perguntas são baseadas nas características armazenadas nos vetores. Por exemplo:
+"A pessoa escolhida tem cabelo loiro?"
+"A pessoa usa óculos?"
+Eliminação de Personagens:
+Com base nas respostas, o jogador elimina opções. Por exemplo, se a resposta para "A pessoa tem cabelo loiro?" for "Não", o jogador 2 elimina todas as pessoas com cabelo loiro.
+Adivinhação Final:
+O jogador tenta adivinhar a pessoa escolhida com base nas características restantes.
+

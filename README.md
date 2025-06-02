@@ -1,2 +1,3 @@
 # Graduacao-TADS
- Atividades no curso de Análise e Desenvolvimento de Sistemas
+
+### Atividades realizadas no curso de superior Tecnólogo em Análise e Desenvolvimento de Sistemas
